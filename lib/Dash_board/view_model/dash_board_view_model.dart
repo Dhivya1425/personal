@@ -6,16 +6,14 @@ import '../model/user_nodel.dart';
 import '../services/api_service.dart';
 import '../state/dash_board_state.dart';
 
-
 class DashBoardViewModel extends StateNotifier<DashBoardState> {
   final ApiService service;
+
   DashBoardViewModel(this.service) : super(DashBoardState());
 
   List<User> userList = [];
   List<Post> postList = [];
   List<Comment> commentList = [];
-
-
 
   Future apiCall() async {
     state = state.copywith(isLoading: true);
@@ -24,15 +22,14 @@ class DashBoardViewModel extends StateNotifier<DashBoardState> {
       postList = await service.fetchPosts();
       commentList = await service.fetchComments();
       state = state.copywith(
-        isLoading: false,
-        userList: userList,
-        postList: postList,
-        commentList: commentList,
-        count: state.count,
-        decrementCount:state.decrementCount
-      );
+          isLoading: false,
+          userList: userList,
+          postList: postList,
+          commentList: commentList,
+          count: state.count,
+          decrementCount: state.decrementCount);
     } catch (e) {
-      state = state.copywith(isLoading: false,error: e.toString());
+      state = state.copywith(isLoading: false, error: e.toString());
     }
   }
 
