@@ -6,8 +6,8 @@ import '../view_model/dash_board_view_model.dart';
 
 final apiProvider = Provider((ref) => ApiService());
 
-
-final dashBoardViewModelProvider = StateNotifierProvider<DashBoardViewModel, DashBoardState>((ref) {
+final dashBoardViewModelProvider =
+    StateNotifierProvider<DashBoardViewModel, DashBoardState>((ref) {
   final apiService = ref.read(apiProvider);
   return DashBoardViewModel(apiService);
 });
