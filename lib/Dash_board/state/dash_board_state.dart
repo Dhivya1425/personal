@@ -25,7 +25,7 @@ class DashBoardState {
   });
 
   DashBoardState copywith({
-    bool isLoading = false,
+    bool? isLoading,
     List<User>? userList,
     List<Post>? postList,
     List<Comment>? commentList,
@@ -35,13 +35,13 @@ class DashBoardState {
     String? error,
   }) {
     return DashBoardState(
-        isLoading: isLoading,
-        userList: userList,
-        commentList: commentList,
-        postList: postList,
-        decrementCount: decrementCount,
-        count: count,
-        isClicked: isClicked,
-        error: error);
+        isLoading: isLoading ?? this.isLoading,
+        userList: userList ?? this.userList,
+        commentList: commentList ?? this.commentList,
+        postList: postList ?? this.postList,
+        decrementCount: decrementCount ?? this.decrementCount,
+        count: count ?? this.count,
+        isClicked: isClicked ?? this.isClicked,
+        error: error ?? this.error);
   }
 }
