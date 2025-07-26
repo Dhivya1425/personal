@@ -55,7 +55,7 @@ class _DashBoardViewState extends ConsumerState<DashBoardView> {
                           onTap: () {
                             ref
                                 .read(dashBoardViewModelProvider.notifier)
-                                .setCount();
+                                .incrementCount();
                           },
                           behavior: HitTestBehavior.opaque,
                           child: Container(
@@ -69,7 +69,7 @@ class _DashBoardViewState extends ConsumerState<DashBoardView> {
                           onTap: () {
                             ref
                                 .read(dashBoardViewModelProvider.notifier)
-                                .setClick();
+                                .toggleClick();
                           },
                           behavior: HitTestBehavior.opaque,
                           child: Container(
@@ -84,8 +84,7 @@ class _DashBoardViewState extends ConsumerState<DashBoardView> {
                         GestureDetector(
                           onTap: () {
                             ref
-                                .read(dashBoardViewModelProvider.notifier)
-                                .setDecrementCount();
+                                .read(dashBoardViewModelProvider.notifier).decrementCount();
                           },
                           behavior: HitTestBehavior.opaque,
                           child: Container(
