@@ -9,7 +9,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -37,4 +36,3 @@ class _MyHomePageState extends State<MyHomePage> {
     return const Scaffold();
   }
 }
-

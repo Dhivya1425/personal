@@ -36,11 +36,11 @@ class _DashBoardViewState extends ConsumerState<DashBoardView> {
       ),
       body: state?.isLoading == true
           ? Center(
-            child: Column(
+              child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [CircularProgressIndicator()]),
-          )
+            )
           : SingleChildScrollView(
               child: Padding(
                 padding:
@@ -55,7 +55,7 @@ class _DashBoardViewState extends ConsumerState<DashBoardView> {
                           onTap: () {
                             ref
                                 .read(dashBoardViewModelProvider.notifier)
-                                .setCount();
+                                .incrementCount();
                           },
                           behavior: HitTestBehavior.opaque,
                           child: Container(
@@ -69,7 +69,7 @@ class _DashBoardViewState extends ConsumerState<DashBoardView> {
                           onTap: () {
                             ref
                                 .read(dashBoardViewModelProvider.notifier)
-                                .setClick();
+                                .toggleClick();
                           },
                           behavior: HitTestBehavior.opaque,
                           child: Container(
@@ -85,7 +85,7 @@ class _DashBoardViewState extends ConsumerState<DashBoardView> {
                           onTap: () {
                             ref
                                 .read(dashBoardViewModelProvider.notifier)
-                                .setDecrementCount();
+                                .decrementCount();
                           },
                           behavior: HitTestBehavior.opaque,
                           child: Container(
@@ -118,7 +118,6 @@ class _DashBoardViewState extends ConsumerState<DashBoardView> {
                           color: Colors.indigoAccent,
                           fontWeight: FontWeight.w500),
                     ),
-
                     ...buildUser()
                   ],
                 ),
