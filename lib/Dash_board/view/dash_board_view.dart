@@ -34,14 +34,16 @@ class _DashBoardViewState extends ConsumerState<DashBoardView> {
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
         ),
       ),
-      body: state?.isLoading == true
+      body:
+      state?.isLoading == true
           ? Center(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [CircularProgressIndicator()]),
-            )
-          : SingleChildScrollView(
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [CircularProgressIndicator()]),
+      )
+          :
+      SingleChildScrollView(
               child: Padding(
                 padding:
                     const EdgeInsets.only(left: 14.0, right: 14, bottom: 14),
