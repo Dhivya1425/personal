@@ -8,10 +8,10 @@ import '../model/user_nodel.dart';
 
 class ApiService{
   final String baseUrl = 'https://jsonplaceholder.typicode.com';
-
+  final String token = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBMzAxMjEiLCJpYXQiOjE3NTM1MTkzNzYsImV4cCI6MTc2MTI0NDIwMH0.56OiaT8-d1FVWfnnrByv92nN2Z5ypwdLwEu24s9QwvQoXGOLt3a1eGaV62dta4_EH6MQQ2_HZ3sCDBmlxBs9QQ";
   Future<List<User>> fetchUsers() async {
     final url = Uri.parse('$baseUrl/users');
-    final response = await http.get(url,headers: {"authorization" : "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBMzAxMjEiLCJpYXQiOjE3NTIyMjMxNTcsImV4cCI6MTc1OTk0ODIwMH0.y5QR2Dpnqto0QeN018sY0xyBko_7TJUTTcR7jSQKRaAso7_xf8SvtIJwZKlxWyWMvJTvvUJnoxrZev8mzHGOFw"});
+    final response = await http.get(url,headers: {"authorization" : token});
     if (response.statusCode == 200) {
       final List jsonList = json.decode(response.body);
       return jsonList.map((json) => User.fromJson(json)).toList();
@@ -22,7 +22,7 @@ class ApiService{
 
   Future<List<Post>> fetchPosts() async {
     final url = Uri.parse('$baseUrl/posts');
-    final response = await http.get(url,headers: {"authorization" : "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBMzAxMjEiLCJpYXQiOjE3NTIyMjMxNTcsImV4cCI6MTc1OTk0ODIwMH0.y5QR2Dpnqto0QeN018sY0xyBko_7TJUTTcR7jSQKRaAso7_xf8SvtIJwZKlxWyWMvJTvvUJnoxrZev8mzHGOFw"});
+    final response = await http.get(url,headers: {"authorization" : token});
 
     if (response.statusCode == 200) {
       final List jsonList = json.decode(response.body);
@@ -34,7 +34,7 @@ class ApiService{
 
   Future<List<Comment>> fetchComments() async {
     final url = Uri.parse('$baseUrl/comments');
-    final response = await http.get(url,headers: {"authorization" : "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBMzAxMjEiLCJpYXQiOjE3NTIyMjMxNTcsImV4cCI6MTc1OTk0ODIwMH0.y5QR2Dpnqto0QeN018sY0xyBko_7TJUTTcR7jSQKRaAso7_xf8SvtIJwZKlxWyWMvJTvvUJnoxrZev8mzHGOFw"});
+    final response = await http.get(url,headers: {"authorization" : token});
     if (response.statusCode == 200) {
       final List jsonList = json.decode(response.body);
       return jsonList.map((json) => Comment.fromJson(json)).toList();
