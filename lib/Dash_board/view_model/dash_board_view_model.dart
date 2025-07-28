@@ -16,8 +16,8 @@ class DashBoardViewModel extends StateNotifier<DashBoardState> {
   List<Comment> commentList = [];
 
   Future apiCall() async {
-    state = state.copywith(isLoading: true);
     try {
+      state = state.copywith(isLoading: true);
       userList = await service.fetchUsers();
       postList = await service.fetchPosts();
       commentList = await service.fetchComments();
